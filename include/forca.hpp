@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
- 
+using namespace std;
+
 class Forca {
     public:
         enum Dificuldade{
@@ -9,15 +10,15 @@ class Forca {
     private:
         //TODO: armazenar os scores?
        
-        std::vector< std::pair<std::string, int> > m_palavras; //<! palavras e sua ocorrência no Corpus
+        vector< pair<string, int> > m_palavras; //<! palavras e sua ocorrência no Corpus
  
-        std::string m_arquivo_scores; //<! nome do arquivo contendo os scores
+        string m_arquivo_scores; //<! nome do arquivo contendo os scores
  
-        std::string m_arquivo_palavras; //<! nome do arquivo contendo as palavras
+        string m_arquivo_palavras; //<! nome do arquivo contendo as palavras
  
         Dificuldade d = Dificuldade::FACIL; //<! dificuldade do jogo
  
-        std::string m_palavra_atual; //<! palavra sendo testada atualmente
+        string m_palavra_atual; //<! palavra sendo testada atualmente
  
         int m_tentativas_restantes = 6; //<! tentativas restantes
    
@@ -31,7 +32,7 @@ class Forca {
          * @param scores o nome do arquivo que contém os scores
          * @see eh_valido
          */
-        Forca( std::string palavras, std::string scores );
+        Forca( string palavras, string scores );
        
  
         /**
@@ -40,7 +41,7 @@ class Forca {
          * razão correspondente de acordo com as especificações.
          * @return {T,""} se os arquivos estiverem válidos, {F,"razão"} caso contrário.
          */
-        std::pair<bool, std::string> eh_valido();
+        pair<bool, string> eh_valido();
  
         /**
          * Carrega os arquivos de scores e palavras preenchendo **ao menos** a estrutura m_palavras
@@ -63,13 +64,13 @@ class Forca {
          * letras que devem aparecer dependendo do nível de dificuldade.
          * @return a próxima palavra do conjunto de palavras disponível de acordo com a dificuldade atual.
          */
-        std::string proxima_palavra();
+        string proxima_palavra();
  
         /**
          * Retorna a palavra atual que está sendo jogada.
          * @return o valor do atributo m_palavra_atual.
          */
-        std::string get_palavra_atual();
+        string get_palavra_atual();
  
         /**
          * Testa se uma letra pertence á palavra atual, retorna T se a letra pertence.
@@ -79,7 +80,7 @@ class Forca {
          * @param palpite uma letra, que deve ser testada se pertence à palavra.
          * @return T se a palpite pertence à palavra, F caso contrário.
          */
-        bool palpite(std::string palpite);
+        bool palpite(string palpite);
  
         /**
          * Em caso de Game Over este método deve retornar T.
